@@ -91,14 +91,14 @@ function FindShizzeeps() {
 	
 	$url = 'https://v0.api.shizzow.com/places?populated=true';
 
-	$city = $_SESSION['city'];
-	if (!empty($city)) {
+	if (!empty($_SESSION['city'])) {
+		$city = $_SESSION['city'];
 		$url .= '&cities=' . $city;
 		setcookie("city", $city, $cookie_expiration, '/');
 	}
 	
-	$st = $_SESSION['st'];
-	if (!empty($st)) {
+	if (!empty($_SESSION['st'])) {
+		$st = $_SESSION['st'];
 		$url .= '&states=' . $st;
 		setcookie("st", $st, $cookie_expiration, '/');
 	}
