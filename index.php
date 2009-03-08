@@ -7,7 +7,11 @@
 	<span id="btnFilters" class="button corners">Filters</span>
 	<span id="btnLogout" class="button corners">Logout</span>
 	<span class="curparams">
-		<span id="status"><?php $u = $_SESSION['u']; if ($u) { ?>You are logged in as <?php echo $u; } ?></span>
+		<span id="status">
+		<?php 
+		if (!empty($_SESSION['u']) {
+				$u = $_SESSION['u'];
+		} ?>You are logged in as <?php echo $u; } ?></span>
 	</span>
 </div>
 
@@ -17,7 +21,7 @@
 <form id="frmLogin" action="" method="post">
 	<div class="fieldset">
 	<fieldset>
-		<label for="username">Your Shizzow ID: </label><input type="text" name="username" id="username" value="<?php echo $_SESSION['u'] ?>" />
+		<label for="username">Your Shizzow ID: </label><input type="text" name="username" id="username" />
 		<label for="password">Your Shizzow Password: </label><input type="password" name="password" id="password" />		
 		<input type="submit" value="Login" name="btnLogin" id="btnLogin" />
 		<input type="hidden" name="f" id="f" value="shizzeeps" />
@@ -31,7 +35,7 @@
 <form id="frmFilters" action="" method="post">
 	<div class="fieldset">
 	<fieldset>
-		<label for="city">City: </label><input type="text" name="city" id="city" size="12" value="<?php echo $_SESSION['city'] ?>" />
+		<label for="city">City: </label><input type="text" name="city" id="city" size="12" value="<?php if (!empty($_SESSION['city']){echo $_SESSION['city'];} ?>" />
 		<label for="st">State: </label><select name="st" id="st"><?php include "inc/states-iso.inc" ?></select>
 		<input type="submit" value="Set Filters" name="btnSetFilters" id="btnSetFilters" />
 		<input type="button" value="Clear Filters" name="btnClearFilters" id="btnClearFilters" />

@@ -1,4 +1,5 @@
 <?php
+// This cron job runs once an hour, and deletes all the ephemeral messages that are too old.
 
 	require_once "db.php";
 	

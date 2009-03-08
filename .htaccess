@@ -14,11 +14,5 @@ RewriteRule ^(.*)$ http://shizzeeps.com/$1 [R=301,NC]
 </IfModule>
 
 
-# AuthName "Under Development"
-# AuthUserFile /home/shizzeep/.htpasswds/.htpasswd
-# AuthType basic
-# Require valid-user
-# Order Deny,Allow
-# Deny from all
-# Allow from 76.105.254.51 w3.org googlebot.com google.com google-analytics.com
-# Satisfy Any
+php_flag display_errors off
+php_flag html_errors off

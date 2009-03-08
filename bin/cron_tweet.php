@@ -5,9 +5,16 @@ if (!isset($_SESSION)) {
 	session_start();
 }	
 
+require_once('lucy.php');
+
+if ($_GET['tp'] != TWEET_CRON_PASS) { 
+	echo 'Access denied.';
+	exit;
+};
+
+
 	// Find Shizzeeps
 	
-	require_once('lucy.php');
 	$shizzowup = TWITTERUP;	
 		
 	$url = 'https://v0.api.shizzow.com/places?populated=true&limit=10';
