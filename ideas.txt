@@ -1,0 +1,24 @@
+. mark people as favorites
+. format date
+. update states dropdown to match shizzow's
+. add a prefs panel with  refresh rate, auto-expand shizzeeps, mark fav/followees/followers
+. add a filter panel: city, state, fav/followees/followers, radius, pics on/off, 
+. add a map view
+. add ability to shout
+. add geo
+. display tags for the places
+. add ability to search for your favorite people
+. alert people via twitter when a spot becomes hot
+. get states & countries off shizzow - look it up in api
+
+x make address field wider (150px)
+x what if you could leave a message for a place?
+x add HTMLPurifier
+
+Messages Table
+	MsgId -- unique id
+	MsgFrom -- shz username
+	MsgTo -- places_key
+	MsgTime -- timestamp
+
+

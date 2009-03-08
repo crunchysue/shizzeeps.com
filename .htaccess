@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^about /about [L]
+#RewriteRule ^rss /rss [L]
+#RewriteRule ^login /login [L]
+
+## Lose the www
+RewriteCond %{http_host} ^www\.shizzeeps\.com [NC]
+RewriteRule ^(.*)$ http://shizzeeps.com/$1 [R=301,NC]
+
+</IfModule>
+
+
+# AuthName "Under Development"
+# AuthUserFile /home/shizzeep/.htpasswds/.htpasswd
+# AuthType basic
+# Require valid-user
+# Order Deny,Allow
+# Deny from all
+# Allow from 76.105.254.51 w3.org googlebot.com google.com google-analytics.com
+# Satisfy Any

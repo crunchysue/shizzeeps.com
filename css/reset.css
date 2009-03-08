@@ -1,0 +1,81 @@
+/* 
+author - Dave Woods
+date - 18/02/2008
+file - reset.css
+http://www.dave-woods.co.uk/?p=187
+*/
+
+/* ~~~~~~~~~~ reset styles ~~~~~~~~~~ */
+
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul,
+dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object,
+a, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span,
+strong, sub, sup, tt, var, legend, fieldset {
+	margin: 0;
+	padding: 0;
+}
+img, fieldset {
+	border: 0;
+}
+body, select, input, textarea {
+	font: 100%/1.2 "lucida sans", verdana, arial, helvetica, sans-serif;
+}
+#container {
+	font-size: 0.8em;
+	/* width: 760px; */
+	width: 90%;
+	margin: 0 auto;
+}
+h1, h2, h3, h4, h5, h6 {
+	padding: 0.6em 0;	
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.8em;	
+}
+h3 {
+	font-size: 1.6em;	
+}
+h4 {
+	font-size: 1.4em;	
+}
+h5 {
+	font-size: 1.2em;	
+}
+h6 {
+	font-size: 1em;	
+}
+p {
+	padding-bottom: 1.2em;	
+}
+
+/* ~~~~~~~~~~ reusable class ~~~~~~~~~~ */
+
+.error {
+	color: #C00;
+	font-weight: bold;	
+}
+.confirmation {
+	color: #080;
+	font-weight: bold;	
+}
+div.fieldset {
+	border: solid 1px #999;
+	padding: 1em;
+	margin: 1em 0;
+}
+legend span {
+	display: block;
+	font-weight: bold;
+	font-size: 1.4em;
+	color: #000;
+}
+.corners {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.link {
+	cursor: pointer;
+}

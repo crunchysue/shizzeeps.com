@@ -1,0 +1,189 @@
+/*
+	sheep blue: #5C7FA0
+	header green: #B6CFB5
+	that yellow: #fefecc
+	background grey: #333344
+*/
+
+
+body {
+	background: url(/images/shizzeeps_background.png) #333344 top left no-repeat;
+	background-color: #333344;
+	text-align: center;
+	color: #000000;
+}
+
+#header h1 {
+	color: #B6CFB5;
+	background: transparent;
+	font: 3.3em monospace;
+}
+
+.oneColFixCtr #container {
+	width: 70%;
+	background: #FFFFFF;
+	margin: 0 auto 40px;
+	padding: 20px;
+	border: 6px solid #000000;
+	text-align: left;
+	/* display:none; */
+}
+
+#home-link {
+	position: absolute;
+	height: 230px;
+	width: 150px;
+}
+
+#buttons {
+	border: 3px solid #999;
+	background: #555;
+	padding: 8px;
+}
+
+.popup {
+	border: 3px solid #999;
+	background: #ccc;
+}
+
+.close {
+	text-align: right;
+	cursor: pointer;
+	padding-right: 1em;
+}
+
+.button {
+	border: 3px solid #666;
+	background: #ccc;
+	color: black;
+	padding: 2px 4px;
+	cursor: pointer;
+}
+
+.button-on {
+	background: #eee;
+}
+
+.place .button {
+	font-size: 0.65em;
+	margin: 0 3px;
+	float: left;
+}
+
+#btnLogout {
+	right: 100%;
+}
+
+.curparams {
+	color: #fefecc;
+	padding-left: 6px;
+}
+
+
+#putmsg {
+	position: absolute;
+}
+
+
+.place {	
+	font-size: 1.5em;
+	margin: 10px 0;
+	padding: 3px;
+	border: 3px solid #999;
+	zoom: 1;
+	overflow: auto;
+}
+
+.fav {
+	color: #ff0000;
+}
+
+.population {	
+	padding: 0 3px;
+	margin: 0 6px 0 0;
+	background-color: #fefecc;
+	border: 3px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 2.3em;
+	float: left;
+}
+
+.when {
+	font-style: italic;
+	font-size: 0.9em;
+}
+
+.addr1 {
+	font-size: 0.7em;
+	color: #4f9fff;
+	width: 180px;
+	float:left;
+	zoom: 1;
+	/* overflow: auto; */
+}
+
+.whoshere {
+	font-size: 0.7em;
+	color: #666;
+	right: 100%;
+	text-align: right;
+	float: right;
+}
+
+.msgs {
+	color: #666;
+	font-size: 0.7em;
+	float:left;
+	clear: both;
+	margin: 2px 0;
+}
+
+.msgfrom {
+	color: #222;
+}
+
+.pdets {
+	left: -20px;
+	padding: 3px;
+}
+
+.balloon {
+	position: relative;	background: #fefecc;
+	border: 3px solid #ccc;
+	text-align: left;
+}
+
+#secondary-links {
+	text-align: right;
+}
+
+#secondary-links a {
+	text-decoration: none;
+	padding: 0 6px;
+	color: #5C7FA0;
+}
+
+
+#about h1 {
+	font-size: 2.5em;
+	color: #333344;
+	background-color: transparent;
+}
+
+#about h2 {
+	color: #5C7FA0;
+	background-color: transparent;
+}
+
+#footer {
+	color: white;
+	margin: 0 auto 30px;
+}
+
+#footer a {
+	color: #fefecc;
+}
+
+
+
