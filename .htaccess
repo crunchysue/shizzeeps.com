@@ -12,7 +12,3 @@ RewriteCond %{http_host} ^www\.shizzeeps\.com [NC]
 RewriteRule ^(.*)$ http://shizzeeps.com/$1 [R=301,NC]
 
 </IfModule>
-
-
-php_flag display_errors off
-php_flag html_errors off

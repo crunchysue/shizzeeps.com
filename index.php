@@ -9,9 +9,9 @@
 	<span class="curparams">
 		<span id="status">
 		<?php 
-		if (!empty($_SESSION['u']) {
+		if (!empty($_SESSION['u'])) {
 				$u = $_SESSION['u'];
-		} ?>You are logged in as <?php echo $u; } ?></span>
+		} ?>You are logged in as <?php echo $u; ?></span>
 	</span>
 </div>
 
@@ -35,7 +35,8 @@
 <form id="frmFilters" action="" method="post">
 	<div class="fieldset">
 	<fieldset>
-		<label for="city">City: </label><input type="text" name="city" id="city" size="12" value="<?php if (!empty($_SESSION['city']){echo $_SESSION['city'];} ?>" />
+		<label for="city">City: </label><input type="text" name="city" id="city" size="12" 
+				value="<?php if (!empty($_SESSION['city'])){echo $_SESSION['city'];} ?>" />
 		<label for="st">State: </label><select name="st" id="st"><?php include "inc/states-iso.inc" ?></select>
 		<input type="submit" value="Set Filters" name="btnSetFilters" id="btnSetFilters" />
 		<input type="button" value="Clear Filters" name="btnClearFilters" id="btnClearFilters" />
