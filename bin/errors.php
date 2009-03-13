@@ -23,7 +23,7 @@ class DatabaseException extends Exception{
 		error_log($msg, 1, $emailto);
 		//error_log($msg, 3, $writeto);
 		
-		echo $msg;
+		//echo $msg;
 		
 	}
 
@@ -43,7 +43,7 @@ class ResultException extends Exception{
 		$msg = $dt . $sep . "Database Exception: " . $this->getMessage() . $sep . $info;
 		$msg .= $nl;
 	
-		echo $msg;
+		//echo $msg;
 				
 	}
 	

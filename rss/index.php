@@ -5,11 +5,45 @@
 
 	$feed_title = 'Shizzeeps';
 	
+	require_once "../bin/db.php";
+	
+	function FindShizzeepsRss() {
+		
+		// get stored data out of db
+		try{
+			$db = new db();
+			$sql = "SELECT Data FROM Storage WHERE City='rss' LIMIT 1;";
+			$result = $db->query($sql);
+			$rows = $result->fetchRow();
+			$db = null;
+		}
+		catch (DatabaseException $e) {
+		  $e->HandleError();
+		}
+		catch (ResultException $e) {
+		  $e->HandleError();
+		}
+		
+		$stripped = stripslashes($rows['Data']);
+		$unserialized = unserialize($stripped); // now it's a php object
+		$json = json_encode($unserialized); // now it's json
+		$places = $unserialized->results->places;
+		
+		return $places;
+	
+	}//FindShizzeepsRss
+
 	
 	//needs to be populated
-	$places = array();
-	$places[] = "test_place";
-	$places[] = "test_place";
+	$places = FindShizzeepsRss();
+	
+	/*
+
+	echo "<pre>";
+	var_dump( $places );
+	echo "</pre>";
+	
+*/
 	
 	/*
 	
@@ -31,12 +65,14 @@
 ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <rss version="2.0"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:atom="http://www.w3.org/2005/Atom"
-	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-	>
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:georss="http://www.georss.org/georss"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+>
 
 	<channel>
 		<title><?=$feed_title?></title>
@@ -53,13 +89,13 @@
 		<?php foreach ($places as $place): ?>
 			
 			<item>
-			<title>4 people are checked in at the Urban Grind Northwest</title>
+			<title><?=$place->population?> people are checked in at <?=$place->places_name?></title>
 			<description></description>
 			<geo:lat>45.513122</geo:lat>
 			<geo:long>-122.644189</geo:long>
 			<georss:point>45.513122 -122.644189</georss:point>
-			<link>http://www.shizzeeps.com/thingy/17883</link>
-			<guid>http://www.shizzeeps.com/thingy/17883</guid>
+			<link>http://www.shizzeeps.com/</link>
+			<guid>7</guid>
 			<pubDate><?=$pub_time?></pubDate>
 			</item>
 		

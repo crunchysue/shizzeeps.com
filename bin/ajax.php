@@ -4,6 +4,8 @@ if (!isset($_SESSION)) {
 	session_start();
 }	
 
+require_once('lucy.php');
+
 // Cookie expiration time (sec * min * hours * days)
 $cookie_expiration = time()+60*60*24*30;
 
@@ -42,6 +44,14 @@ switch ($f) {
 	case 'shizzeeps' :
 		FindShizzeeps();
 		break;
+		
+	case 'shizzeepspdx' :
+		FindShizzeepsPDX();
+		break;
+		
+	case 'shizzeepsstatic' :
+		FindShizzeepsStatic();
+		break;
 	
 }
 
@@ -64,21 +74,82 @@ function Logout() {
 
 
 
-function Login() {	
-
-	global $purifier;
-	
-	if (!empty($_POST['username'])) {
-		$_SESSION['u'] =  $purifier->purify($_POST['username']);
-	}
-	
-	if (!empty($_POST['password'])) {
-		$_SESSION['p'] =  $purifier->purify($_POST['password']);  
-	}
-
-	//header('Location: http://shizzow.com/');
+function Login() {  
+ 
+  global $purifier;
+  
+  if (!empty($_POST['username'])) {
+    $_SESSION['u'] = $purifier->purify($_POST['username']);
+  }
+  
+  if (!empty($_POST['password'])) {
+    $_SESSION['p'] = $purifier->purify($_POST['password']);
+  }
+ 
+  //header('Location: http://shizzow.com/');
 }
 
+
+function FindShizzeepsStatic() {
+
+  global $purifier;
+  
+  if (!empty($_GET['city'])) {
+    $city = $purifier->purify($_GET['city']);
+  }
+  
+	require_once "db.php";
+	
+	// get stored data out of db
+	try{
+		$db = new db();
+		$sql = "SELECT Data FROM Storage WHERE City='$city' LIMIT 1;";
+		$result = $db->query($sql);
+		$rows = $result->fetchRow();
+		$db = null;
+	}
+	catch (DatabaseException $e) {
+	  $e->HandleError();
+	}
+	catch (ResultException $e) {
+	  $e->HandleError();
+	}
+	
+	$stripped = stripslashes($rows['Data']);
+	$unserialized = unserialize($stripped); // now it's a php object
+	$json = json_encode($unserialized); // now it's json
+	
+	echo $json;
+
+}//FindShizzeepsPDX
+
+
+function FindShizzeepsPDX() {
+
+	require_once "db.php";
+	
+	// get stored data out of db
+	try{
+		$db = new db();
+		$sql = "SELECT Data FROM Storage WHERE City='pdx' LIMIT 1;";
+		$result = $db->query($sql);
+		$rows = $result->fetchRow();
+		$db = null;	
+	}
+	catch (DatabaseException $e) {
+	  $e->HandleError();
+	}
+	catch (ResultException $e) {
+	  $e->HandleError();
+	}
+	
+	$stripped = stripslashes($rows['Data']);
+	$unserialized = unserialize($stripped); // now it's a php object
+	$json = json_encode($unserialized); // now it's json
+	
+	echo $json;
+
+}//FindShizzeepsPDX
 
 
 function FindShizzeeps() {
@@ -122,8 +193,6 @@ function WhoIsHere() {
 	$shizzowup = $_SESSION['u'] . ":" . $_SESSION['p'];
 
 	$key = $_GET['id'];
-	
-	//$url = "https://v0.api.shizzow.com//shouts?places_key=$key&shouts_by_places_key=true&when=recently&who=everyone&limit=100";
 	
 	$url = "https://v0.api.shizzow.com/places/$key/shouts?when=recently&who=everyone&limit=100";
 

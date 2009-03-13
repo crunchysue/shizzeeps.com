@@ -22,10 +22,20 @@
 		
 		$json = $curl_response['content']; // echo data as json string
 		$data = json_decode($json);
+		
+		
+		echo '<hr />PLACES:<hr /><pre>'; 
+		print_r($json);	
+		echo '</pre><hr />';
+		
+		StoreShouts('Lgbyc9');
+
+
 		$places = $data->results->places;
 		$pop = $name = $city = $st = $msg = $key = $places_sql = $shouts_sql = $msg_sql = '';
 		$lat = $lng = $alt = $fav = $web = $addr1 = $addr2 ='';
 		$min = 1; // minimum number of people in a place necessary to generate tweet
+/*
 
 		try {
 			require_once "db.php";
@@ -53,8 +63,8 @@
 	
 					$places_sql .= '("' . $key . '","' . $name . '","' . $addr1 . '","' . $addr2 . '","' . $city . '","' . $st;
 					$places_sql .= '","' . $lat . '","' . $lng . '","' . $alt . '","' . $fav . '","' . $web . '"),';
-					
-					
+							
+					StoreShouts('Lgbyc9');
 					
 				} // if pop >= min			
 			} // foreach
@@ -62,14 +72,10 @@
 			$places_sql = substr($places_sql, 0, strlen($sql)-1);
 			//echo $sql;
 				
-			$db->query($places_sql);
-	
-			// Loop through the places and get their shouts
-			while($row = $result->fetchRow()) {
-	    		StoreShout('ihI5f2');
-			}
-			
+			//$db->query($places_sql);	
 			$db = null;
+			
+			
 		}// try
 		
 		
@@ -79,6 +85,7 @@
 		catch (ResultException $e) {
 		  $e->HandleError();
 		}
+*/
 		
 	}// if curl response = 200
 	
@@ -86,7 +93,7 @@
 
 
 // For a shout, build a database entry
-function GetShout($key) {
+function StoreShouts($key) {
 
 	global $shizzowup;
 	
@@ -103,20 +110,21 @@ function GetShout($key) {
 		
 		$shouts = $data->results->shouts;
 		
-		for ($shouts as $shout) {
+		/*
+for ($shouts as $shout) {
 		
 		
 		}
 		
+*/
 		
 		
 		
 		
-		/*
-		echo '<hr /><pre>'; 
-		print_r($data);	
+		echo '<hr />SHOUTS FOR "SHIZZEEPS WORLD HQ:"<hr /><pre>'; 
+		print_r($json);	
 		echo '</pre><hr />';
-		*/
+		
 
 
 	}

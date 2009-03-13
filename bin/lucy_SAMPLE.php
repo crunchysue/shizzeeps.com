@@ -11,6 +11,9 @@ define ('DBNAME', 'mydbname');
 define ('ERR_EMAIL', 'you@yours.com');
 define ('TWEET_CRON_PASS', 'mypassword');
 define ('FIND_SHIZZEEPS_CRON_PASS', 'mypassword');
+define ('PDXPASS', 'mypassword');
+define ('AUSPASS', 'mypassword');
+define ('RSSPASS', 'mypassword');
 
 
 ?>

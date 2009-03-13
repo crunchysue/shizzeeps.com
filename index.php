@@ -6,6 +6,8 @@
 	<span id="btnShowLogin" class="button corners">Login</span>
 	<span id="btnFilters" class="button corners">Filters</span>
 	<span id="btnLogout" class="button corners">Logout</span>
+	<span id="btnPDX" class="button corners">PDX</span>
+	<span id="btnAUS" class="button corners">SXSW</span>
 	<span class="curparams">
 		<span id="status">
 		<?php 

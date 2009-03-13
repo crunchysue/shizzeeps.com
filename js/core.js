@@ -43,7 +43,7 @@ $(document).ready(function(){
 		// Logout
 	$('#btnLogout').click(function(){
 		$.post('/bin/ajax.php', {f:'logout'});
-		$('#status').html('You are not logged in.');
+		$('#status').html('You need to log in to see all the shizzeeps everywhere, but PDX and SXSW are free.');
 	});
 	
 	// Filters
@@ -59,6 +59,17 @@ $(document).ready(function(){
 		ClearFilters();
 		FindShizzeeps();
 	});
+	
+	// PDX
+	$('#btnPDX').click(function(){
+		location.href = "/pdx/";
+	});
+	
+	// AUS
+	$('#btnAUS').click(function(){
+		location.href = "/aus/";
+	});
+
 	
 	// Help
 	$('#help').hide();
@@ -129,7 +140,7 @@ function DisplayData(json) {
 	var out, place, dets, id, who, megaphone, notepad, expl, city, st, errmsg, title;
 	
 	// Error Codes
-	if (json == '401') {	errmsg = "You are not logged in."; }
+	if (json == '401') {	errmsg = "You need to log in to see all the shizzeeps everywhere, but PDX and SXSW are free."; }
 	if (json == '503') { errmsg = "Shizzow rate limit exceeded"; }
 	
 	if (errmsg) {
@@ -248,11 +259,12 @@ function WhoIsHere(id) {
 		
 		for (i=0; i<count; i++) {
 			shout = shouts[i];
-			person = '<div class="person" id="' + shout.people_name + '">' + shout.people_name + '</div>';
+			person = '<div class="person" id="' + shout.people_name + '"><a target="_blank" href="http://shizzow.com/people/' + shout.people_name + '">' + shout.people_name + '</a></div>';
 			$('#whosat'+id).append(person);
 			
 			pdets = '<div class="pdets balloon corners" id="shout_' + shout.shouts_history_id + '">'; 
-			pdets = pdets + shout.profiles_name + '<div class="when">' + shout.shout_time + '</div>';
+			pdets = pdets + '<a target="_blank" href="http://shizzow.com/people/' + shout.people_name + '">';
+			pdets = pdets + shout.profiles_name + '</a><div class="when">' + shout.shout_time + '</div>';
 			if (shout.shouts_messages) {
 				for (j=0; j<shout.shouts_messages.length; j++) {
 					msg = shout.shouts_messages[j];

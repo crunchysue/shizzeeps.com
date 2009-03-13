@@ -22,3 +22,8 @@ Messages Table
 	MsgTime -- timestamp
 
 
+* Added: New call "GET /places?favorites=true".  Get the places that
+have been designated favorite places the most by Shizzow users.
+* Added: New call "GET /places?popular=true".   Get the most popular
+places on Shizzow, ordered by the number of times people have shouted
+from each place. 
