@@ -170,13 +170,13 @@ body {
 }
 
 
-#about h1 {
+.about h1 {
 	font-size: 2.5em;
 	color: #333344;
 	background-color: transparent;
 }
 
-#about h2 {
+.about h2 {
 	color: #5C7FA0;
 	background-color: transparent;
 }

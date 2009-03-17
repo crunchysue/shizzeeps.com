@@ -43,7 +43,7 @@ $(document).ready(function(){
 		// Logout
 	$('#btnLogout').click(function(){
 		$.post('/bin/ajax.php', {f:'logout'});
-		$('#status').html('You need to log in to see all the shizzeeps everywhere, but PDX and SXSW are free.');
+		$('#status').html('Log in to see all the shizzeeps everywhere; PDX and SXSW are free.');
 	});
 	
 	// Filters
@@ -140,7 +140,7 @@ function DisplayData(json) {
 	var out, place, dets, id, who, megaphone, notepad, expl, city, st, errmsg, title;
 	
 	// Error Codes
-	if (json == '401') {	errmsg = "You need to log in to see all the shizzeeps everywhere, but PDX and SXSW are free."; }
+	if (json == '401') {	errmsg = "Log in to see all the shizzeeps everywhere; PDX and SXSW are free."; }
 	if (json == '503') { errmsg = "Shizzow rate limit exceeded"; }
 	
 	if (errmsg) {

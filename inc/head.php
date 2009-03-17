@@ -11,6 +11,10 @@ if ($_SERVER['REQUEST_URI'] != "/pdx/" && $_SERVER['REQUEST_URI'] != "/aus/"){
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="See where the shizzeeps of shizzow are congregating." />
+	<meta name="keywords" content="social friend finder, location-based, friends, shizzow, twitter" />
+	<meta name="author" content="Sue Brown" />
+
 	<title>Shizzeeps: Where Are They?</title>
 	
 	<link rel="shortcut icon" href="favicon.ico" /> 
@@ -49,8 +53,9 @@ if ($_SERVER['REQUEST_URI'] != "/pdx/" && $_SERVER['REQUEST_URI'] != "/aus/"){
 <!-- ! Secondary Links -->
 <div id="secondary-links">
 	<a href="/about/">About</a>
+	<a href="/buzz/">Buzz Pipe</a>
+	<a href="http://getsatisfaction.com/shizzeeps" target="_blank">Feedback</a>
 	<a href="http://shizzow.com" target="_blank">Shizzow</a>
 	<a href="http://twitter.com/shizzeeps" target="_blank">Twitter</a>
-	<a href="http://getsatisfaction.com/shizzeeps" target="_blank">Feedback</a>
 	<!-- <a href="/blog/">Blog</a> -->
 </div>

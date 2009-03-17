@@ -89,14 +89,27 @@
 		<?php foreach ($places as $place): ?>
 			
 			<item>
-			<title><?=$place->population?> people are checked in at <?=$place->places_name?></title>
-			<description></description>
-			<geo:lat>45.513122</geo:lat>
-			<geo:long>-122.644189</geo:long>
-			<georss:point>45.513122 -122.644189</georss:point>
-			<link>http://www.shizzeeps.com/</link>
-			<guid>7</guid>
-			<pubDate><?=$pub_time?></pubDate>
+				<title>
+				<?php if ($place->population > 1) { ?>
+					<?=$place->population?> shizzeeps are congregating at <?=$place->places_name?>
+				<?php } else { ?>
+					<?=$place->population?> shizzeep is congregating at <?=$place->places_name?>
+				<?php } ?>
+				in <?=$place->city?>, <?=$place->state_iso?>
+				</title>
+				<description></description>
+				<geo:lat><?=$place->latitude?></geo:lat>
+				<geo:long><?=$place->longitude?></geo:long>
+				<georss:point><?=$place->latitude?> <?=$place->longitude?></georss:point>
+				<?php if ($place->state_iso == "OR") { ?>
+					<link>http://www.shizzeeps.com/pdx/</link>
+				<?php } else if ($place->state_iso == "TX") { ?>
+					<link>http://www.shizzeeps.com/aus/</link>
+				<?php } else { ?>
+					<link>http://www.shizzeeps.com/</link>
+				<?php } ?>
+				<guid><?=$place->places_key?></guid>
+				<pubDate><?=$pub_time?></pubDate>
 			</item>
 		
 		<?php endforeach ?>

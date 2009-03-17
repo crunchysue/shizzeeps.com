@@ -1,6 +1,6 @@
 <?php
 
-	$limit = 7;
+	$limit = 10;
 
 	require_once('lucy.php');
 	if ($_GET['fp'] != FIND_SHIZZEEPS_CRON_PASS) { 

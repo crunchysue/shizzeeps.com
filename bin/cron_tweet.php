@@ -69,6 +69,12 @@ if ($_GET['tp'] != TWEET_CRON_PASS) {
 			foreach ($curcity as $curmsg) {
 				$hashtag = "#shizzeeps$curcityname";
 				$url = "http://shizzeeps.com";
+				if ($curcityname == 'PortlandOR') {
+					$url .= '/pdx/';
+				} else if ($curcityname == 'AustinTX') {
+					$url .= '/aus/';
+				}
+
 				$tweet = "$hashtag $curmsg $url";
 				send_tweet ($tweet);
 			}
@@ -91,74 +97,7 @@ if ($_GET['tp'] != TWEET_CRON_PASS) {
 	
 	
 	
-	
-	/*
-stdClass Object
-(
-    [request] => stdClass Object
-        (
-            [limit] => 2
-            [page] => 1
-            [start] => 
-            [time] => 2009-02-28T12:10:29-0800
-            [url] => https://v0.api.shizzow.com/places?populated=true&limit=2
-        )
 
-    [results] => stdClass Object
-        (
-            [count] => 7
-            [places] => Array
-                (
-                    [0] => stdClass Object
-                        (
-                            [population] => 2
-                            [places_key] => iunNdq
-                            [places_name] => Kahler Grand Hotel
-                            [address1] => 20 2nd Ave Sw
-                            [address2] => 
-                            [city] => Rochester
-                            [state_iso] => MN
-                            [state_name] => Minnesota
-                            [zip] => 
-                            [country_iso] => US
-                            [country_name] => United States
-                            [phone] => (507) 280-6200
-                            [website] => http://kahler.com/
-                            [latitude] => 44.02317000000000
-                            [longitude] => -92.46572400000000
-                            [altitude] => 0.0000000
-                            [is_favorite] => 0
-                        )
-
-                    [1] => stdClass Object
-                        (
-                            [population] => 1
-                            [places_key] => ihI5f2
-                            [places_name] => Casa Del Crunchy
-                            [address1] => 2734 SE 29th Ave
-                            [address2] => 
-                            [city] => Portland
-                            [state_iso] => OR
-                            [state_name] => Oregon
-                            [zip] => 97202
-                            [country_iso] => US
-                            [country_name] => United States
-                            [phone] => 
-                            [website] => 
-                            [latitude] => 45.50303250000000
-                            [longitude] => -122.63560240000000
-                            [altitude] => 0.0000000
-                            [is_favorite] => 0
-                        )
-
-                )
-
-        )
-
-)
-
-*/
-	
 	
 
 ?>
