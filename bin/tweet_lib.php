@@ -1,4 +1,4 @@
-ouc<?php
+<?php
 
 
 function send_tweet($tweet) {
@@ -15,9 +15,9 @@ function send_tweet($tweet) {
 	
 //	$tweet = urlencode($tweet);
 	
-	$tweet = html_entity_decode($tweet, ENT_QUOTES, 'UTF-8');
-	
-	str_replace("&", "&amp;", $tweet);
+	//$tweet = html_entity_decode($tweet, ENT_QUOTES, 'UTF-8');
+	$tweet = urlencode($tweet);
+	//str_replace("&", "&amp;", $tweet);
 	
 	$post_fields =  "source=shizzeeps&status=$tweet";
 	

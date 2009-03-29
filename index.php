@@ -1,6 +1,5 @@
 <?php include "inc/head.php" ?>
 
-
 <!-- ! Buttons -->
 <div id="buttons" class="corners">
 	<span id="btnShowLogin" class="button corners">Login</span>
